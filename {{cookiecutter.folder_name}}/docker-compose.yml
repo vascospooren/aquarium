@@ -17,7 +17,7 @@ services:
             - "8036:8036"
 
             # splash
-            - "8050:8050"
+            - "80:80"
         links:
             {%- for i in range(num_splashes) %}
             - splash{{i}}
@@ -31,7 +31,7 @@ services:
         image: scrapinghub/splash:{{ cookiecutter.splash_version }}
         command: --max-timeout {{ max_timeout }} --slots {{ splash_slots }} --maxrss {{ maxrss }} --verbosity {{ verbosity }}
         expose:
-            - 8050
+            - 80
         mem_limit: {{ mem_limit }}
         memswap_limit: {{ memswap_limit }}
         restart: always
